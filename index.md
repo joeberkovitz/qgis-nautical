@@ -53,8 +53,9 @@ Begin by downloading the QGIS application for your computer from
 [download.qgis.org](https://download.qgis.org). Use the stable version, not
 the bleeding-edge release. If you are on Windows use the Standalone Installer.
 
-Also download the template project `NOAA-Template.qgz` described [above](#noaa-raster-charts-template) and put
-it in a new folder that you will be using to create your charts.
+Also download the template project `NOAA-Template.qgz` described [above](#noaa-raster-charts-template) and copy it
+to a new folder that you will be using to create your charts. You may wish to change its name also
+since it will no longer be a template once you start changing it.
 
 ### Open the template project
 
@@ -262,3 +263,66 @@ be downloaded; during this time, the program will likely be unresponsive. When
 QGIS is done, it will display a green notice at the top of the layout window
 and you will now have your finished chart as a PDF.
 
+Here's [an example](/guide/charts/SalemSound.pdf). (It's a large file and you
+may need to view it in Acrobat rather than in your web browser.)
+
+### Adding waypoints
+
+To add markers to your maps, you can use the *Waypoints* layer in the template
+project.  In the main map window, select this layer in the **Layers** panel by clicking it,
+and use the menu command **Layer > Toggle Editing** to let you edit the layer.
+Then use **Edit > Add Point Feature** (short cut Ctrl-. or Command-.) to change the
+mouse to a tool that adds markers.
+
+Click on the map to add features. You may enter an optional label with each one.
+They look like this:
+
+![Marker](/guide/images/Marker.png)
+
+When you are done, you must save the waypoint data or it will go away when the
+project is closed. To do this, click the small icon to the right of the layer
+name in the Layers panel:
+
+![Make Permanent](/guide/images/MakeLayerPermanent.png)
+
+A dialog will appear that lets you specify a filename on your computer where
+the waypoints will be saved. The circled "..." button below lets you choose
+the folder and filename for the waypoint data.
+
+![Save Scratch Layer](/guide/images/SaveScratchLayer.png)
+
+This only has to be done once. In the future the project will remember where the
+waypoint layer data is saved.
+
+You can double click the layer name to edit various properties of how the
+markers look, are colored, labeled, etc. These are quite involved and beyond
+the scope of this guide but they are easy to experiment with.
+
+### Adding route segments
+
+To add route segments to your maps which are automatically labeled with the
+distance and magnetic bearing, you can use one of the two *Routes* layers in
+the project. Pick the appropriate magnetic declination for your area.
+
+In the main map window, select this layer in the **Layers** panel by clicking it,
+and use the menu command **Layer > Toggle Editing** to let you edit the layer.
+Then use **Edit > Add Line Feature** (short cut Ctrl-. or Command-.) to change the
+mouse to a tool that adds route segments.
+
+To add each individual segment, you will need to carry out this sequence:
+- left-click on the starting point,
+- left-click on the finishing point,
+- right-click anywhere on the map. (on a trackpad, this is a two-finger click usually. On single-button mouse computers, you will need to find out how you simulate a right click for your machine.)
+
+The result looks like this:
+
+![RouteSegments](/guide/images/RouteSegments.png)
+
+
+As with [waypoints](#adding-waypoints) above, you must make your route layer
+permanent and save its data on your computer or it will disappear as soon as
+you close the project.
+
+*To change the magnetic declination for the layer*: edit the layer's `magnetic_var` variable
+to the appropriate number. "W" declinations are negative numbers, "E" are positive.
+Consult the QGIS documentation for how to [change layer variables](https://docs.qgis.org/3.16/en/docs/user_manual/introduction/general_tools.html#storing-values-in-variables).
