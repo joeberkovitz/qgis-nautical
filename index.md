@@ -137,6 +137,12 @@ created in QGIS by the author and are loaded from the Github website.
 
 - *Auto-labeled routes* for drawing automatically labeled route legs.
 
+- *NOAA ENC Chart Prototype* experimental marine charts generated from digital
+data. These are a prototype showing the direction that NOAA charts will take
+in the future, as hand-produced nautical charts are being discontinued. NOAA
+cautions that these maps are not yet ready to be used for navigation, but they
+do reveal some features not shown in the traditional charts.
+
 The order of the layers is important, as layers on top can obscure layers on
 the bottom. They can be dragged around and reordered. They are also placed in
 groups which can be turned on and off to control the visibility of every layer
@@ -246,6 +252,9 @@ get them out of the way of things on the map that you would like to look at.
 You can edit text and all other attributes of the current selected object in
 the **Item Properties** panel at any time.
 
+This is also the point at which you can add special text, markers, lines, etc.
+that are unique to this layout (as opposed to shared with other layouts).
+
 #### Export the layout to PDF
 
 At this point, your chart is ready to export to PDF. Most likely it still does
@@ -266,13 +275,14 @@ and you will now have your finished chart as a PDF.
 Here's [an example](/guide/charts/SalemSound.pdf). (It's a large file and you
 may need to view it in Acrobat rather than in your web browser.)
 
-### Adding waypoints
+### Adding markers or waypoints
 
-To add markers to your maps, you can use the *Waypoints* layer in the template
-project.  In the main map window, select this layer in the **Layers** panel by clicking it,
-and use the menu command **Layer > Toggle Editing** to let you edit the layer.
-Then use **Edit > Add Point Feature** (short cut Ctrl-. or Command-.) to change the
-mouse to a tool that adds markers.
+To add markers to your mapping data that can appear in any layout that you
+create, you can use the *Waypoints* layer in the template project.  In the
+main map window, select this layer in the **Layers** panel by clicking it, and
+use the menu command **Layer > Toggle Editing** to let you edit the layer.
+Then use **Edit > Add Point Feature** (short cut Ctrl-. or Command-.) to
+change the mouse to a tool that adds markers.
 
 Click on the map to add features. You may enter an optional label with each one.
 They look like this:
