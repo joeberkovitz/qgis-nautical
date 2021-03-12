@@ -131,7 +131,9 @@ Satellite view. Very handy for seeing what areas actually look like.
 
 - *Magnetic grids* showing magnetic north at various declinations in various
 regions, currently limited to New England and the West Coast of the US. These were
-created in QGIS by the author and are loaded from the Github website.
+created in QGIS by the author and are loaded from the Github website. To make
+your own magnetic north grids, use the [Compass Routes plugin](#compass-routes-plugin).
+
 
 - *Waypoints* showing general-purpose markers with labels.
 
@@ -308,11 +310,11 @@ You can double click the layer name to edit various properties of how the
 markers look, are colored, labeled, etc. These are quite involved and beyond
 the scope of this guide but they are easy to experiment with.
 
-### Adding route segments
+### Adding route segments with compass bearings
 
 To add route segments to your maps which are automatically labeled with the
 distance and magnetic bearing, you can use one of the two *Routes* layers in
-the project. Pick the appropriate magnetic declination for your area.
+the project. Pick the appropriate magnetic variation for your area.
 
 In the main map window, select this layer in the **Layers** panel by clicking it,
 and use the menu command **Layer > Toggle Editing** to let you edit the layer.
@@ -328,11 +330,21 @@ The result looks like this:
 
 ![RouteSegments](/guide/images/RouteSegments.png)
 
-
 As with [waypoints](#adding-waypoints) above, you must make your route layer
 permanent and save its data on your computer or it will disappear as soon as
 you close the project.
 
-*To change the magnetic declination for the layer*: edit the layer's `magnetic_var` variable
-to the appropriate number. "W" declinations are negative numbers, "E" are positive.
-Consult the QGIS documentation for how to [change layer variables](https://docs.qgis.org/3.16/en/docs/user_manual/introduction/general_tools.html#storing-values-in-variables).
+To make new auto-labeled compass route layers, please use the [Compass Routes plugin](#compass-routes-plugin).
+
+### Compass Routes plugin
+
+You can install the Compass Routes plugin in QGIS to make your own route layers
+and magnetic north lines for any area with any magnetic variation.
+
+The plugin is currently experimental. To install it, open up the Plugin Manager
+using the **Plugins > Manage and Install Plugins...** menu command. First go
+to the **Settings** tab and check the box labeled *Show also experimental plugins*.
+Then go to the **Not Installed** tab and locate the Compass Routes plugin, then
+install it.
+
+Documentation for the plugin can be found [here](https://joeberkovitz.github.io/qgis-compass-routes).
