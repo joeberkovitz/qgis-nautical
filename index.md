@@ -338,13 +338,14 @@ To make new auto-labeled compass route layers, please use the [Compass Routes pl
 
 ### Compass Routes plugin
 
-You can install the Compass Routes plugin in QGIS to make your own route layers
-and magnetic north lines for any area with any magnetic variation.
+You can install the Compass Routes plugin in QGIS to make your own route
+layers and magnetic north lines for any area, automatically looking up the
+magnetic variation for the current date.
 
-The plugin is currently experimental. To install it, open up the Plugin Manager
-using the **Plugins > Manage and Install Plugins...** menu command. First go
-to the **Settings** tab and check the box labeled *Show also experimental plugins*.
-Then go to the **Not Installed** tab and locate the Compass Routes plugin, then
-install it.
+To install it, do the following:
+- open up the Plugin Manager by using the **Plugins > Manage and Install Plugins...** menu command
+- go to the **Settings** tab and check the box labeled *Show also experimental plugins* (otherwise you won't see the plugin, which is currently considered experimental.)
+- go to the **Not Installed** tab and enter "Compass Routes" in the search text box
+- select *Compass Routes* and install it
 
 Documentation for the plugin can be found [here](https://joeberkovitz.github.io/qgis-compass-routes).
