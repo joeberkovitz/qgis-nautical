@@ -50,8 +50,9 @@ with at least 4 GB of RAM is recommended. Your mileage may vary: see what
 works.
 
 Begin by downloading the QGIS application for your computer from
-[download.qgis.org](https://download.qgis.org). Use the stable version, not
-the bleeding-edge release. If you are on Windows use the Standalone Installer.
+[download.qgis.org](https://download.qgis.org). Use the Long Term Release (as
+of this writing, 3.16), not the Latest release. If you are on Windows use the
+Standalone Installer for 64-bit Windows.
 
 Also download the template project `NOAA-Template.qgz` described [above](#noaa-raster-charts-template) and copy it
 to a new folder that you will be using to create your charts. You may wish to change its name also
@@ -111,18 +112,15 @@ shown in the Layers panel at lower left.
 
 When you first open the template project, layers for marine charts and a
 magnetic grid pertinent for Massachusetts are turned on. Each layer has its
-own checkbox enabling it. Try checking and unchecking the various boxes to see
-what the layers contain.
+own checkbox enabling it. Layers are also placed into a hierarchy of groups
+that can also be turned on and off. Try checking and unchecking the various
+boxes to see what the layers and groups contain.
 
-Layers included in the template project include:
+Layers included in the template project include, in order of importance:
 
-- *NOAA Raster Charts* marine charts layer. These are tiled versions of the
-NOAA printed charts that are  automatically downloaded from NOAA web servers.
-You do not need to download any PDFs to see these.
-
-- *NOAA Raster Chart Footprints* layer that shows the boundaries of numbered
-NOAA nautical charts. This is useful if you actually want to grab the
-corresponding PDF or reference it for someone else.
+- *NOAA Raster Chart Tiles* layers. These are tiled versions of the
+NOAA printed nautical charts, which are automatically downloaded from NOAA web servers.
+You do not need to download any PDFs to see these.  There are several different layers in this group which is explained below.
 
 - *Google Maps satellite* imagery layer that is basically the same as Maps'
 Satellite view. Very handy for seeing what areas actually look like.
@@ -130,27 +128,19 @@ Satellite view. Very handy for seeing what areas actually look like.
 - *OpenStreetMap* topo/street map view (similar to Google Maps' Default view).
 
 - *Magnetic grids* showing magnetic north at various declinations in various
-regions, currently limited to New England and the West Coast of the US. These were
-created in QGIS by the author and are loaded from the Github website. To make
-your own magnetic north grids, use the [Compass Routes plugin](#compass-routes-plugin).
-
+regions. A New England grid is currently loaded by default, but other grids
+can be created at well using the [Compass Routes plugin](#compass-routes-plugin) as described later on.
 
 - *Waypoints* showing general-purpose markers with labels.
 
-- *Auto-labeled routes* for drawing automatically labeled route legs.
-
-- *NOAA ENC Chart Prototype* experimental marine charts generated from digital
-data. These are a prototype showing the direction that NOAA charts will take
-in the future, as hand-produced nautical charts are being discontinued. NOAA
-cautions that these maps are not yet ready to be used for navigation, but they
-do reveal some features not shown in the traditional charts.
+- *Current stations* and *Tide stations* showing NOAA prediction stations. Hovering over either of these will display the station name and a link to its NOAA home page where tide or current predictions can be viewed.
 
 The order of the layers is important, as layers on top can obscure layers on
 the bottom. They can be dragged around and reordered. They are also placed in
 groups which can be turned on and off to control the visibility of every layer
 inside the group.
 
-For most purposes, the *Raster Charts* and one of the *Magnetic grids* layers
+For most purposes, one of the *Raster Charts* and one of the *Magnetic grids* layers
 will give you a workable chart.
 
 If you get lost and don't see anything in the map view, this can happen
@@ -171,28 +161,42 @@ layouts are saved along with it.
 
 The steps in making a layout are:
 
-- Setting up the main map view and layers to show the information of interest
-- Creating and naming the layout
-- Panning, zooming and rotating the layout's map as desired
-- Editing and adjusting the title, scale bars
-- Adding any other decorations, such as descriptive text
+- Set up the main map view and layers to show the information of interest
+- Pick the right chart raster resolution for your map
+- Create and name the layout
+- Pan, zoom and rotate the layout's map as desired
+- Edit and adjust the title and scale bars
+- Add any other decorations, such as descriptive text
 
 #### Setting up the map to make a layout
 
-If you've worked with the **Map View** already, this is pretty
-straightforward. Pan and zoom the map so it shows approximately the area you
-want to have in your chart, at about the right scale. The Map View does not
-have to be perfect, because you will adjust all the details in the Layout
-you are about to create. Just get it in the ballpark.
+Once you're familiar with the **Map View**, this is quite straightforward. Pan
+and zoom the map so it shows approximately the area you want to have in your
+chart, at about the right scale. The Map View does not have to be perfect,
+because you will adjust all the details in the Layout you are about to create.
+Just get it in the ballpark.
 
-If you were making a chart of Salem Sound, your Main Map (with magnetic grid
-for 14º W) might look like this:
+If you were making a chart of Salem Sound, your Main Map might look like this:
 
 ![Map View before making layout](/guide/images/MapViewPreChart.png)
 
 (A lot of the detail is missing, because QGIS is automatically using an
 overview chart so as to keep everything readable on the screen. Don't worry,
 the detail will be in the final chart!)
+
+#### Choosing the raster resolution
+
+There are several different levels of chart resolution available from NOAA. Unfortunately it's up to you to pick the right one for a given chart, and there's no perfect choice that works every time.
+
+All of your choices are grouped under the layer group *NOAA Raster Chart Tiles* and are labeled "NOAA 50000_1 (levels 5-XXX)" where **XXX** is a number. The bigger that number is, the higher and sharper the chart resolution. You might think it's always best to pick the biggest number, but if you pick a number that's too large, NOAA will simply blank out the map in areas where that resolution's not available. And if you pick a number too small, the map will look blurry.
+
+Once you have the area that you're interested in cued up, follow this procedure:
+1. Set the scale to 1:2500 using the Scale dropdown at the bottom of the screen.
+1. Find the highest resolution layer that will display information at this scale.
+1. Unselect all other layers in the raster chart tiles group.
+1. Set the scale back to something normal again so the map view shows the area you want to focus on.
+
+Typically, level 16 is a good resolution in most of coastal New England.
 
 #### Creating your layout
 
@@ -292,7 +296,7 @@ They look like this:
 ![Marker](/guide/images/Marker.png)
 
 When you are done, you must save the waypoint data or it will go away when the
-project is closed. To do this, click the small icon to the right of the layer
+project is closed. To do this, click the small "computer chip" icon to the right of the layer
 name in the Layers panel:
 
 ![Make Permanent](/guide/images/MakeLayerPermanent.png)
@@ -310,16 +314,25 @@ You can double click the layer name to edit various properties of how the
 markers look, are colored, labeled, etc. These are quite involved and beyond
 the scope of this guide but they are easy to experiment with.
 
+### Compass Routes plugin
+
+A very useful planning tool is the Compass Routes plugin, which will let you
+plot your own routes automatically labelled with distance and magnetic bearing. It will also let you create your own magnetic north lines for any area. The variation for the current date is automatically calculated, so you don't need to consult any tables or other maps.
+
+To install this plugin, do the following:
+- open up the Plugin Manager by using the **Plugins > Manage and Install Plugins...** menu command
+- go to the **Settings** tab and check the box labeled *Show also experimental plugins* (otherwise you won't see the plugin, which is currently considered experimental.)
+- go to the **Not Installed** tab and enter "Compass Routes" in the search text box
+- select *Compass Routes* and install it
+
+Documentation for the plugin can be found [here](https://joeberkovitz.github.io/qgis-compass-routes).
+
 ### Adding route segments with compass bearings
 
-To add route segments to your maps which are automatically labeled with the
-distance and magnetic bearing, you can use one of the two *Routes* layers in
-the project. Pick the appropriate magnetic variation for your area.
-
-In the main map window, select this layer in the **Layers** panel by clicking it,
-and use the menu command **Layer > Toggle Editing** to let you edit the layer.
-Then use **Edit > Add Line Feature** (short cut Ctrl-. or Command-.) to change the
-mouse to a tool that adds route segments.
+Use the Compass Routes plugin to add a new compass routes layer (see the
+documentation available via the link above.) Now use **Edit > Add Line
+Feature** (short cut Ctrl-. or Command-.) to change the mouse to a tool that
+adds route segments.
 
 To add each individual segment, you will need to carry out this sequence:
 - left-click on the starting point,
@@ -336,16 +349,3 @@ you close the project.
 
 To make new auto-labeled compass route layers, please use the [Compass Routes plugin](#compass-routes-plugin).
 
-### Compass Routes plugin
-
-You can install the Compass Routes plugin in QGIS to make your own route
-layers and magnetic north lines for any area, automatically looking up the
-magnetic variation for the current date.
-
-To install it, do the following:
-- open up the Plugin Manager by using the **Plugins > Manage and Install Plugins...** menu command
-- go to the **Settings** tab and check the box labeled *Show also experimental plugins* (otherwise you won't see the plugin, which is currently considered experimental.)
-- go to the **Not Installed** tab and enter "Compass Routes" in the search text box
-- select *Compass Routes* and install it
-
-Documentation for the plugin can be found [here](https://joeberkovitz.github.io/qgis-compass-routes).
