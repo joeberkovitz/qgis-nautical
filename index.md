@@ -349,3 +349,11 @@ you close the project.
 
 To make new auto-labeled compass route layers, please use the [Compass Routes plugin](#compass-routes-plugin).
 
+### Simplifying the user interface
+
+QGIS has a lot of extra bells and whistles that you may never use. To
+declutter the toolbars, you can use the **Settings > Interface
+Customization...** command. Use the Load From File icon (yellow folder) to
+load the `customization.ini` file that you can download from
+[here](customization/customization.ini) and save on your computer. Then click
+OK and restart QGIS with a simpler user interface.
