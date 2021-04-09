@@ -391,6 +391,21 @@ you close the project.
 
 To make new auto-labeled compass route layers, please use the [Compass Routes plugin](#compass-routes-plugin).
 
+### Adding custom layers
+
+You are not limited to working with the data included in the template project.
+For example, here is a link to a [public database of wind
+turbines](https://eerscmap.usgs.gov/uswtdb/data/) maintained by the US
+Geological service, at least as of 2021. Visit this page and download the
+GeoJSON format file described there.
+
+Then use **Layer > Add Layer > New Vector Layer...** to load the GeoJSON file
+into QGIS. Make sure the new layer is above the charts or you won't see it.
+Now your map will include the locations of all US wind turbines. You can also
+use advanced features of QGIS like the Identify tool to look up information
+about the turbines like their height, their location, their names and so
+forth. Learning how to do this with QGIS is a worthwhile exercise.
+
 ### Simplifying the user interface
 
 QGIS has a lot of extra bells and whistles that you may never use. To
