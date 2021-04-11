@@ -9,6 +9,8 @@ designed to be used in conjunction with resources in the repository.
 The materials here were created by [Joe Berkovitz](https://www.joeberkovitz.com/contact/),
 a sea kayaker based in Marblehead, MA.
 
+**NOTE: The content available from this site is for informational purposes only and is not to be used for navigation.**
+
 ## NOAA Raster Charts Template
 
 This QGIS project includes useful components to get started creating
