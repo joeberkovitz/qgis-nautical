@@ -82,12 +82,15 @@ A few important items in the view are circled above:
 laterally by clicking and dragging. To its right you can also see **Zoom In** and
 **Zoom Out** tools.
 
-- On the left side of the screen the **Layers panel** shows the set of layers
-available for viewing in the map.
+- On the left side of the screen the **Layers panel** shows the set of
+*layers* available for viewing in the map. A checkbox next to a layer means
+you can see it in the map view.
 
-- On the bottom, the **Coordinates** box shows the lat/long of the mouse position.
+- On the bottom, the **Coordinates** box shows the latitude and longitude of
+the mouse position.
 
-- On the bottom, the **Scale** control displays and also controls the scale of the map view.
+- On the bottom, the **Scale** control displays and also controls the scale of
+the map view.
 
 #### Pan and zoom the map
 
@@ -117,30 +120,38 @@ own checkbox enabling it. Layers are also placed into a hierarchy of groups
 that can also be turned on and off. Try checking and unchecking the various
 boxes to see what the layers and groups contain.
 
-Layers included in the template project include, in order of importance:
+Layers included in the template project include:
 
-- *NOAA Raster Nav Charts* layer. This is a tiled version of the NOAA printed
-nautical charts, which is automatically downloaded from NOAA web servers. You
-do not need to download any PDFs to see them. The type of the chart that is
-displayed (e.g. general, coastal, harbor) depends on the scale at which you
-are viewing this layer.
-
-- *Google Maps satellite* imagery layer that is basically the same as Maps'
-Satellite view. Very handy for seeing what areas actually look like.
-
-- *OpenStreetMap* topo/street map view (similar to Google Maps' Default view).
+- *Waypoints* includes general-purpose markers that you create yourself. It is initially empty.
 
 - *Magnetic grids* showing magnetic north at various declinations in various
 regions. A New England grid is currently loaded by default, but other grids
 can be created at well using the [Compass Routes plugin](#compass-routes-plugin) as described later on.
 
-- *Waypoints* showing general-purpose markers with labels.
+- *OpenStreetMap* topo/street map view (similar to Google Maps' Default view).
 
-- *Current stations* and *Tide stations* showing NOAA prediction stations. Hovering over either of these will display the station name and a link to its NOAA home page where tide or current predictions can be viewed.
+- *Google Maps Satellite* imagery layer. Very handy for seeing what areas
+actually look like.
+
+- *Current stations* and *Tide stations* providing NOAA predictions. Hovering
+over a station will display the station name and a link to its NOAA home page
+where tide or current predictions can be viewed.
+
+- *NOAA Raster Chart Footprints* show the locations of various NOAA printed
+charts at different scales. You can use these to preview and download charts
+for inclusion in your maps.
+
+- *NOAA Raster Nav Charts* layer. This is a "tiled" version of the NOAA printed
+nautical charts, which is automatically downloaded from NOAA web servers. You
+do not need to download any files to see these tiles. The type of the chart that is
+displayed (e.g. general, coastal, harbor) depends on the scale at which you
+are viewing this layer.
 
 - *NOAA Encoded Nav Charts* layer. This is a prototype layer showing NOAA's new
 encoded navigational charts (ENC). Some version of this will eventually replace the
-more familiar raster charts. For now, it's more of a curiosity than something useful. It has a number of independent sub-layers that can be switched on and off.
+more familiar raster charts. For now, it's more of a curiosity than something
+useful. It has a number of independent sub-layers that can be switched on and
+off.
 
 The order of the layers is important, as layers on top can obscure layers on
 the bottom. They can be dragged around and reordered. They are also placed in
@@ -169,8 +180,7 @@ layouts are saved along with it.
 The steps in making a layout are:
 
 - Set up the main map view and layers to show the information of interest
-- Pick the right chart raster resolution for your map
-- Create and name the layout
+- Create and name a print layout for your map
 - Pan, zoom and rotate the layout's map as desired
 - Edit and adjust the title and scale bars
 - Add any other decorations, such as descriptive text
@@ -181,66 +191,13 @@ Once you're familiar with the **Map View**, this is quite straightforward. Pan
 and zoom the map so it shows approximately the area you want to have in your
 chart, at about the right scale. The Map View does not have to be perfect,
 because you will adjust all the details in the Layout you are about to create.
-Just get it in the ballpark, and make it about 25% bigger than the area you
-think you need.
+Just get it in the ballpark.
 
 A lot of detail will still be missing, because QGIS automatically uses an
 overview-level chart so as to keep everything readable on the screen.  If you
 were making a chart of Salem Sound, your Main Map might now look like this:
 
 ![Map View before making layout](guide/images/MapViewPreChart.png)
-
-#### Choosing the raster resolution
-
-In this step, you will download a layer at a specific resolution that will form the basis for your chart.
-
-There are several different levels of chart resolution available from NOAA.
-It's up to you to pick the right one for a given chart, and there's no perfect
-choice that works for all purposes. The resolution you pick determines which
-of the original raster charts (e.g. 1:20,000, 1:40,000, 1:80,000) you will
-wind up working with. Often you will wind up with a composite of several maps
-at different scales, but they will be perfectly fitted together.
-
-Leaving your map positioned and zoomed as it was, right-click the chart layer in the Layers panel (usually *NOAA Raster Nav Charts*) and choose **Export > Save As...**, as shown below:
-
-<img src="guide/images/RasterSaveAs.png">
-
-The following dialog box will come up:
-
-<img src="guide/images/SaveRasterDialog.png" width="75%" height="75%">
-
-You must perform the following actions in this dialog:
-
-1. Uncheck the *Create VRT* option (that's right, _remove_ the checkmark).
-
-1. Click the ... button and specify a folder and file where the downloaded image will go. It will automatically be given a `.tif` extension.
-
-1. Click the *Map Canvas Extent* button. Otherwise you will download a chart for the whole continent which will take forever.
-
-1. Put the resolution (in this case, the number `4`) into the *Horizontal* and
-*Vertical* fields. You will see grayed-out numbers in the two boxes below.
-They should be somewhere around 4 digits. If they are a lot bigger than that,
-maybe you forgot the previous step!
-
-1. Click the *OK* button. The dialog will disappear and QGIS will display a progress bar at the bottom of the map as it downloads the image. When you are done, a new layer will appear in your Layers panel, and the map now looks like this with the desired resolution:
-
-![Map View after downloading image](guide/images/MapViewPostDownload.png)
-
-Where did that magic resolution `4` come from? It actually means 4 meters (on
-the map) per pixel (in the image). It just happens that 4 is a reasonable
-number for selecting the 1:40000 charts from NOAA's map server.  Powers of two
-are reasonable choices: 1, 2, 4, 8, etc. Bigger numbers give you charts at a
-larger scale, with less detail. Smaller numbers give more detailed charts,
-which are sometimes not as good because the symbols can become too small to
-read on the water. You can experiment, but I have found 4 to be a good
-middle-of-the-road choice.
-
-When you are done, remove the checkmark from the "regular" NOAA charts layer.
-Otherwise your final chart will incorporate a double set of images and be
-twice as large as it needs to be.
-
-At this point, save your project since QGIS is prone to crashing after this
-operation.
 
 #### Creating your layout
 
@@ -309,7 +266,7 @@ that are unique to this layout (as opposed to shared with other layouts).
 
 At this point, your chart is ready to export to PDF. Most likely it still does
 not show the right level of detail though -- but still, no worries on that
-score. (You can skip this step, but if you really want to preview the chart at
+score. (If you really want to preview the chart at
 the level of detail in which it will appear on the final PDF, magnify the
 layout view scale to 400% using the Scale box at the lower right of the
 window, then use **Edit > Pan Layout** to move the layout around on the screen
@@ -324,6 +281,93 @@ and you will now have your finished chart as a PDF.
 
 Here's [an example](guide/charts/SalemSound.pdf). (It's a large file and you
 may need to view it in Acrobat rather than in your web browser.)
+
+### Including specific NOAA charts in your map
+
+The recipe given above is the quickest and easiest way to make a chart, but
+you lose the ability to control which scale of NOAA charts are actually used.
+The automatically downloaded map tiles just give you whatever NOAA thinks is
+most appropriate for the size of map you are printing, which may not be what
+you want. You just have to see and find out. If the result isn't working for
+you, often it will be because the automatic scale is too detailed which
+creates readability problems for an 11x17" map on a kayak deck. Including
+specific charts at 1:40000 or 1:80000 is often best.
+
+Downloading and using a specific chart in your map also ensures that you get
+the crispest and sharpest possible resolution in your final printout.
+
+You can easily preview, download and include any NOAA chart into QGIS in a way
+that will automatically fit them together seamlessly. Begin the process by
+clicking on the *NOAA Raster Chart Footprints* layer, then checking its box
+and expanding it. Your display will now look like this:
+
+![Chart Footprints](guide/images/ChartFootprints.png)
+
+As you can see, there are now shaded areas representing the area of each chart
+labeled with the chart's number, title and scale. These typically overlap.
+
+Hovering your mouse over one of these areas will display a small popup window
+that looks like this:
+
+<img alt="Chart Footprint Popup" src="guide/images/FootprintPopup.png" width="50%" height="50%">
+
+First click the *Preview* link, which takes you to a NOAA page that lets you
+inspect the map up front, to see if it's got the appearance and level of
+detail you want before you download it and put it into your QGIS project.
+
+If it's what you want, click the *Download* link. This will download a .zip
+file for this chart to your computer, which you may need to manually
+uncompress depending on how your computer is set up.  Once the .zip file is
+uncompressed, a folder named `BSB_ROOT/xxxxx/` will be created, where `xxxxx`
+is replaced by the number of your chart. Inside that folder will be a file
+named `xxxxx_1.KAP`. That is the file you will now insert into your QGIS
+project as a new layer.
+
+Copy the `.KAP` file into a folder that you create underneath where you are
+keeping your QGIS project (e.g. `charts/`). Next, select the *NOAA Raster Nav
+Charts* layer to highlight it, and drag the `.KAP` file into the QGIS window.
+A brand new layer will be created that shows the chart in the correct position
+relative to all the other layers. Your display may now look something like
+this:
+
+<img alt="New Raster Layer" src="guide/images/RasterChartLayer.png">
+
+The display of the map layer will look crude, like this, because the pixel
+resolution is not automatically adjusted for your screen. This will not affect
+the quality of your final map.
+
+At this point, turn OFF the regular NOAA Charts and Footprints layers, and
+zoom into the area of interest. Now go about making a print layout in the
+exact same way you did before: the procedure is identical, except that now you
+are using a different layer for the map.
+
+#### Cropping chart borders and combining charts
+
+You may have noticed that the new chart includes borders like the frame,
+lat/long tick marks and labels, copyright text and blank margins. These get in
+the way of the map if you are working at the edge of the map. They can be
+removed by exporting the chart as a new layer and cropping it in the process.
+
+Zoom and pan the map so that only the portion of the chart you want is
+visible. Resizing the window may help you get the map into the correct shape. 
+Right-click the chart's layer and choose **Export > Save As...**. Perform
+these steps:
+
+1. Select the radio button at the top marked *Rendered
+Image*.
+
+1. Click the "..." button to the right of the *File name* field, and
+choose the name of a file to save the cropped chart to.
+
+1. Click the *Map Canvas Extent* button which crops the chart to the size of the map view.
+
+1. Click OK. A new layer will be added to your project with the cropped
+chart.
+
+1. Delete the old layer.
+
+This technique can be used with multiple charts to allow you to overlap them
+and achieve a seamless combination of your own choosing, by displaying the layers for multiple cropped charts together. QGIS automatically positions them so the pieces fit together exactly.
 
 ### Adding markers or waypoints
 
