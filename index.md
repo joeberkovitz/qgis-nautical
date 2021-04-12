@@ -326,9 +326,9 @@ project as a new layer.
 Copy the `.KAP` file into a folder that you create underneath where you are
 keeping your QGIS project (e.g. `charts/`). Next, select the *NOAA Raster Nav
 Charts* layer to highlight it, and drag the `.KAP` file into the QGIS window.
-A brand new layer will be created that shows the chart in the correct position
-relative to all the other layers. Your display may now look something like
-this:
+A brand new layer named something like *xxxxx_1* will be created that shows
+the chart in the correct position relative to all the other layers. Your
+display may now look something like this:
 
 <img alt="New Raster Layer" src="guide/images/RasterChartLayer.png">
 
@@ -340,34 +340,6 @@ At this point, turn OFF the regular NOAA Charts and Footprints layers, and
 zoom into the area of interest. Now go about making a print layout in the
 exact same way you did before: the procedure is identical, except that now you
 are using a different layer for the map.
-
-#### Cropping chart borders and combining charts
-
-You may have noticed that the new chart includes borders like the frame,
-lat/long tick marks and labels, copyright text and blank margins. These get in
-the way of the map if you are working at the edge of the map. They can be
-removed by exporting the chart as a new layer and cropping it in the process.
-
-Zoom and pan the map so that only the portion of the chart you want is
-visible. Resizing the window may help you get the map into the correct shape. 
-Right-click the chart's layer and choose **Export > Save As...**. Perform
-these steps:
-
-1. Select the radio button at the top marked *Rendered
-Image*.
-
-1. Click the "..." button to the right of the *File name* field, and
-choose the name of a file to save the cropped chart to.
-
-1. Click the *Map Canvas Extent* button which crops the chart to the size of the map view.
-
-1. Click OK. A new layer will be added to your project with the cropped
-chart.
-
-1. Delete the old layer.
-
-This technique can be used with multiple charts to allow you to overlap them
-and achieve a seamless combination of your own choosing, by displaying the layers for multiple cropped charts together. QGIS automatically positions them so the pieces fit together exactly.
 
 ### Adding markers or waypoints
 
@@ -451,6 +423,54 @@ Now your map will include the locations of all US wind turbines. You can also
 use advanced features of QGIS like the Identify tool to look up information
 about the turbines like their height, their location, their names and so
 forth. Learning how to do this with QGIS is a worthwhile exercise.
+
+### Cropping chart borders and combining charts
+
+You may have noticed that the new chart includes borders like the frame,
+lat/long tick marks and labels, copyright text and blank margins. These get in
+the way of the map if you are working at the edge of the map. They can be
+removed by exporting the chart as a new layer and cropping it in the process.
+
+Zoom and pan the map so that only the portion of the chart you want is
+visible. Resizing the window may help you get the map into the correct shape. 
+Select the chart's layer and choose **Layer > Save As...** from the menu.
+
+Perform these steps:
+
+1. Select the radio button at the top marked *Rendered
+Image*.
+
+1. Click the "..." button to the right of the *File name* field, and
+choose the name of a file to save the cropped chart to.
+
+1. Click the *Map Canvas Extent* button which crops the chart to the size of the map view.
+
+1. Click OK. A new chart layer will be added to your project with the cropped
+chart.
+
+1. Delete the old chart layer.
+
+This technique can be used with multiple charts to allow you to overlap them
+and achieve a seamless combination of your own choosing, by displaying the
+layers for multiple cropped charts together. QGIS automatically positions them
+so the pieces fit together exactly.
+
+Optionally, you can crop a chart to its exact footprint rather than using
+the map window size. This exactly trims off all the border material and works
+better for those charts whose boundary is at an angle. To do this, perform these
+steps:
+
+1. Use **Layer > Create Layer > New Temporary Scratch Layer...** to create a new temporary layer of geometry type *Polygon*.
+
+1. Select the Chart Footprints layer and use **Edit > Select > Select Features**, then click the footprint you want to crop to.
+
+1. Use **Edit > Copy Features** to copy it (or your regular Copy keyboard shortcut).
+
+1. Select the new temporary layer.
+
+1. Use **Edit > Paste Features** to paste the footprint into the temporary layer.
+
+1. Use the command **Raster > Extraction > Clip Raster By Mask Layer...**. In the dialog which follows, select the chart as the *Input layer*, the temporary layer as the *Mask layer*, and provide the value `255` to the option *Assign a specified nodata value to output bands*. At the bottom, use the ... button to specify a filename for the output *Clipped (mask)*. Click *Run* and a new layer will be created that is exactly clipped to the footprint.
 
 ### Simplifying the user interface
 
