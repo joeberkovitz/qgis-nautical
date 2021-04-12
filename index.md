@@ -304,7 +304,9 @@ and expanding it. Your display will now look like this:
 ![Chart Footprints](guide/images/ChartFootprints.png)
 
 As you can see, there are now shaded areas representing the area of each chart
-labeled with the chart's number, title and scale. These typically overlap.
+labeled with the chart's number, title and scale. These typically overlap. You
+can play with the checkboxes in the sub-layers of the Chart Footprints to view
+only footprints for certain chart scales, which makes things much clearer.
 
 Hovering your mouse over one of these areas will display a small popup window
 that looks like this:
