@@ -428,10 +428,11 @@ forth. Learning how to do this with QGIS is a worthwhile exercise.
 
 ### Cropping chart borders and combining charts
 
-You may have noticed that the new chart includes borders like the frame,
-lat/long tick marks and labels, copyright text and blank margins. These get in
-the way of the map if you are working at the edge of the map. They can be
-removed by exporting the chart as a new layer and cropping it in the process.
+When you download a specific NOAA RNC chart, the downloaded image includes
+non-map stuff like the frame, lat/long tick marks and labels, copyright text
+and blank margins. These get in the way of the map if you are working near its
+edge, or are combining multiple charts into one map. They can be removed by
+cropping the chart as described here.
 
 Zoom and pan the map so that only the portion of the chart you want is
 visible. Resizing the window may help you get the map into the correct shape. 
