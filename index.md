@@ -11,7 +11,7 @@ a sea kayaker based in Marblehead, MA.
 
 **NOTE: The content available from this site is for informational purposes only and is not to be used for navigation.**
 
-## NOAA Raster Charts Template
+## NOAA Chart Project Template
 
 This QGIS project includes useful components to get started creating
 high-quality nautical charts based on NOAA raster marine charts. It includes
@@ -26,6 +26,10 @@ of specific files for specific areas.
 - **Sample chart layouts**.  A set of sample project layouts is ready-made for
 duplication in 11x17 landscape and portrait. Each layout has a map, title,
 scale bar, and lat/long grid.
+
+- **Chart footprints**. A data layer that makes it easy to locate and download
+specific NOAA charts in a georeferenced format, with various scales for chart
+preparation.
 
 **[Download NOAA-Template.qgz](NOAA-Template.qgz)**
 
