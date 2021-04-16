@@ -59,6 +59,12 @@ Begin by downloading the QGIS application for your computer from
 of this writing, 3.16), not the Latest release. If you are on Windows use the
 Standalone Installer for 64-bit Windows.
 
+**Mac OS note:** The first time you run the QGIS application, it will complain
+that the app "cannot be opened because it cannot be checked for malicious
+software". This is in fact normal. You can get around it by right-clicking the
+application icon in the Applications folder, choosing *Open* from the menu,
+and then clicking *Open* on the resulting dialog box.
+
 Also download the template project `NOAA-Template.qgz` described [above](#noaa-raster-charts-template) and copy it
 to a new folder that you will be using to create your charts. You may wish to change its name also
 since it will no longer be a template once you start changing it.
