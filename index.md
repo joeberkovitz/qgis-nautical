@@ -72,7 +72,10 @@ since it will no longer be a template once you start changing it.
 ### Open the template project
 
 Start the QGIS application and use **Project > Open...** to open the template project.
-(In the future you can use **Open Recent >** as a shortcut.)
+In the future you can use **Open Recent >** as a shortcut.
+
+(Note that your computer may not know how to open QGIS .qgz project files to start with. You can
+tell it how to do that, usually the first time you try to open one, when your machine complains.)
 
 When you open the project up, in the center of the window you will see the
 main map that QGIS uses, called the **Map View**. The next section describes
