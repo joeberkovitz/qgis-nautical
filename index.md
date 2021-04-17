@@ -69,6 +69,9 @@ Also download the template project `NOAA-Template.qgz` described [above](#noaa-r
 to a new folder that you will be using to create your charts. You may wish to change its name also
 since it will no longer be a template once you start changing it.
 
+Depending on the type of computer you are using, you may need to run an
+installer program. Follow the instructions for your particular download.
+
 ### Open the template project
 
 Start the QGIS application and use **Project > Open...** to open the template project.
