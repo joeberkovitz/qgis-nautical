@@ -31,13 +31,17 @@ scale bar, and lat/long grid.
 specific NOAA charts in a georeferenced format, with various scales for chart
 preparation.
 
-**[Download NOAA-Template.qgz](NOAA-Template.qgz)**
+**[Download NSPN-Workshop-Template.qgz](NSPN-Workshop-Template.qgz)**
+
+*Note: at present the template is geared to the New England area, pending some
+fixes by NOAA to their web services which were out of order at the last
+release of this document.*
 
 ## Quick guide to making raster charts
 
 This guide describes how to:
 - Download the QGIS program installer
-- Open the NOAA-Template project in QGIS
+- Open the template project in QGIS
 - Use the QGIS map and layers to view areas of the world
 - Make a layout of a specific chart
 - Export a layout to a PDF file
@@ -65,7 +69,7 @@ software". This is in fact normal. You can get around it by right-clicking the
 application icon in the Applications folder, choosing *Open* from the menu,
 and then clicking *Open* on the resulting dialog box.
 
-Also download the template project `NOAA-Template.qgz` described [above](#noaa-raster-charts-template) and copy it
+Also download the template project `NSPN-Workshop-Template.qgz` described [above](#noaa-raster-charts-template) and copy it
 to a new folder that you will be using to create your charts. You may wish to change its name also
 since it will no longer be a template once you start changing it.
 
@@ -338,8 +342,9 @@ file for this chart to your computer, which you may need to manually
 uncompress depending on how your computer is set up.  Once the .zip file is
 uncompressed, a folder named `BSB_ROOT/xxxxx/` will be created, where `xxxxx`
 is replaced by the number of your chart. Inside that folder will be a file
-named `xxxxx_1.KAP`. That is the file you will now insert into your QGIS
-project as a new layer.
+named `xxxxx_y.KAP` where xxxxx and y correspond once again to the chart you
+requested. This is the file you will now insert into your QGIS project as a
+new layer.
 
 Copy the `.KAP` file into a folder that you create underneath where you are
 keeping your QGIS project (e.g. `charts/`). Next, select the *NOAA Raster Nav
@@ -479,17 +484,30 @@ the map window size. This exactly trims off all the border material and works
 better for those charts whose boundary is at an angle. To do this, perform these
 steps:
 
-1. Use **Layer > Create Layer > New Temporary Scratch Layer...** to create a new temporary layer of geometry type *Polygon*.
-
 1. Select the Chart Footprints layer and use **Edit > Select > Select Features**, then click the footprint you want to crop to.
 
-1. Use **Edit > Copy Features** to copy it (or your regular Copy keyboard shortcut).
+1. Use the command **Raster > Extraction > Clip Raster By Mask Layer...**. In the dialog which follows:
 
-1. Select the new temporary layer.
+    - select the chart as the *Input layer*
+    - select the footprints layer as the *Mask layer*
+    - check the box marked *Selected features only*
+    - provide the value `255` to the option *Assign a specified nodata value to output bands*.
+    - click *Run*
 
-1. Use **Edit > Paste Features** to paste the footprint into the temporary layer.
+A new temporary layer named *Clipped (Mask)* will be created that is exactly
+clipped to the footprint. You must now save it using these steps, very similar
+to the cropping technique given above:
 
-1. Use the command **Raster > Extraction > Clip Raster By Mask Layer...**. In the dialog which follows, select the chart as the *Input layer*, the temporary layer as the *Mask layer*, and provide the value `255` to the option *Assign a specified nodata value to output bands*. At the bottom, use the ... button to specify a filename for the output *Clipped (mask)*. Click *Run* and a new layer will be created that is exactly clipped to the footprint.
+1. Select the radio button at the top marked *Rendered
+Image*.
+
+1. Click the "..." button to the right of the *File name* field, and
+choose the name of a file to save the cropped chart to.
+
+1. Click OK. A new chart layer will be added that uses the saved file.
+
+1. Delete the originally imported chart layer and the temporary clipping layer.
+
 
 ### Simplifying the user interface
 
