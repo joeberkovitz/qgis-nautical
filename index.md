@@ -11,6 +11,8 @@ a sea kayaker based in Marblehead, MA.
 
 **NOTE: The content available from this site is for informational purposes only and is not to be used for navigation.**
 
+**NOAA charts are provided here subject to the [RNC User Agreement](https://charts.noaa.gov/RNCs/Agreement.shtml).**
+
 ## NOAA Chart Project Template
 
 This QGIS project includes useful components to get started creating
@@ -31,11 +33,9 @@ scale bar, and lat/long grid.
 specific NOAA charts in a georeferenced format, with various scales for chart
 preparation.
 
-**[Download NSPN-Workshop-Template.qgz](NSPN-Workshop-Template.qgz)**
+**[Download NSPN-Workshop-Template-2.qgz](NSPN-Workshop-Template-2.qgz)**
 
-*Note: at present the template is geared to the New England area, pending some
-fixes by NOAA to their web services which were out of order at the last
-release of this document.*
+*Note: at present the template is geared to the New England area.*
 
 ## Quick guide to making raster charts
 
@@ -69,7 +69,7 @@ software". This is in fact normal. You can get around it by right-clicking the
 application icon in the Applications folder, choosing *Open* from the menu,
 and then clicking *Open* on the resulting dialog box.
 
-Also download the template project `NSPN-Workshop-Template.qgz` described [above](#noaa-raster-charts-template) and copy it
+Also download the template project described [above](#noaa-raster-charts-template) and copy it
 to a new folder that you will be using to create your charts. You may wish to change its name also
 since it will no longer be a template once you start changing it.
 
@@ -157,7 +157,7 @@ actually look like.
 over a station will display the station name and a link to its NOAA home page
 where tide or current predictions can be viewed.
 
-- *NOAA Raster Chart Footprints* show the locations of various NOAA printed
+- *RNC Chart Downloads* show the locations of various NOAA printed
 charts at different scales. You can use these to preview and download charts
 for inclusion in your maps.
 
@@ -167,7 +167,11 @@ do not need to download any files to see these tiles. The type of the chart that
 displayed (e.g. general, coastal, harbor) depends on the scale at which you
 are viewing this layer.
 
-- *NOAA Encoded Nav Charts* layer. This is a prototype layer showing NOAA's new
+(The most reliable version of this layer is packaged in the template. For a higher-resolution
+version using NOAA's Seamless RNC Service, you may download [this layer definition](layers/SeamlessRNCCharts.qlr)
+and add it to your project using **Layer > Add from Layer Definition File...**.
+
+- *NOAA Encoded Nav Charts* layer (CURRENTLY UNAVAILABLE). This is a prototype layer showing NOAA's new
 encoded navigational charts (ENC). Some version of this will eventually replace the
 more familiar raster charts. For now, it's more of a curiosity than something
 useful. It has a number of independent sub-layers that can be switched on and
@@ -318,51 +322,28 @@ the crispest and sharpest possible resolution in your final printout.
 
 You can easily preview, download and include any NOAA chart into QGIS in a way
 that will automatically fit them together seamlessly. Begin the process by
-clicking on the *NOAA Raster Chart Footprints* layer, then checking its box
-and expanding it. Your display will now look like this:
+activating the *RNC Chart Downloads* layer by checking its visibility box, and
+clicking its name.
 
-![Chart Footprints](guide/images/ChartFootprints.png)
+Next, use **View > Identify Features** to switch the mouse cursor to the
+*Identify* tool, which lets you interact with specific chart download
+footprints. With this tool, *right-click* the map you want to download. You
+will be given a choice of Preview or Download.
 
-As you can see, there are now shaded areas representing the area of each chart
-labeled with the chart's number, title and scale. These typically overlap. You
-can play with the checkboxes in the sub-layers of the Chart Footprints to view
-only footprints for certain chart scales, which makes things much clearer.
+It's a good idea to preview first to make sure you know what you are getting,
+as the files are large and may take some time to download.
 
-Hovering your mouse over one of these areas will display a small popup window
-that looks like this:
-
-<img alt="Chart Footprint Popup" src="guide/images/FootprintPopup.png" width="50%" height="50%">
-
-First click the *Preview* link, which takes you to a NOAA page that lets you
-inspect the map up front, to see if it's got the appearance and level of
-detail you want before you download it and put it into your QGIS project.
-
-If it's what you want, click the *Download* link. This will download a .zip
-file for this chart to your computer, which you may need to manually
-uncompress depending on how your computer is set up.  Once the .zip file is
-uncompressed, a folder named `BSB_ROOT/xxxxx/` will be created, where `xxxxx`
-is replaced by the number of your chart. Inside that folder will be a file
-named `xxxxx_y.KAP` where xxxxx and y correspond once again to the chart you
-requested. This is the file you will now insert into your QGIS project as a
-new layer.
-
-Copy the `.KAP` file into a folder that you create underneath where you are
-keeping your QGIS project (e.g. `charts/`). Next, select the *NOAA Raster Nav
-Charts* layer to highlight it, and drag the `.KAP` file into the QGIS window.
-A brand new layer named something like *xxxxx_1* will be created that shows
-the chart in the correct position relative to all the other layers. Your
-display may now look something like this:
-
-<img alt="New Raster Layer" src="guide/images/RasterChartLayer.png">
-
-The display of the map layer will look crude, like this, because the pixel
-resolution is not automatically adjusted for your screen. This will not affect
-the quality of your final map.
+Once you download a layer, a box will come up to show you the progress of the download.
+When completed, the downloaded map file will be saved in the same directory
+as your QGIS project and a brand new map layer will be added to your project. 
 
 At this point, turn OFF the regular NOAA Charts and Footprints layers, and
 zoom into the area of interest. Now go about making a print layout in the
 exact same way you did before: the procedure is identical, except that now you
 are using a different layer for the map.
+
+Don't forget to save the project or you will have to add the map again (you do not
+need to download it again, but can use **Layer > Add Layer > Add Raster Layer...**).
 
 ### Adding markers or waypoints
 
@@ -447,13 +428,18 @@ use advanced features of QGIS like the Identify tool to look up information
 about the turbines like their height, their location, their names and so
 forth. Learning how to do this with QGIS is a worthwhile exercise.
 
-### Cropping chart borders and combining charts
+### Downloading your own RNC charts from NOAA
 
-When you download a specific NOAA RNC chart, the downloaded image includes
-non-map stuff like the frame, lat/long tick marks and labels, copyright text
-and blank margins. These get in the way of the map if you are working near its
-edge, or are combining multiple charts into one map. They can be removed by
-cropping the chart as described here.
+The downloadable charts in this project are currently limited to only certain
+regions. You can also download any NOAA RNC chart from their
+[Interactive Chart Catalog](https://www.charts.noaa.gov/InteractiveCatalog/nrnc.shtml) by
+going to the Paper Charts tab, selecting a chart, and then clicking **RNC** at
+the bottom right. You will get a .zip file that unpacks to include one or more
+`BSB_ROOT/xxxxx_x.KAP` files which can be loaded into QGIS directly. However,
+these downloaded image include non-map stuff like the frame, lat/long tick
+marks and labels, copyright text and blank margins. These get in the way of
+the map if you are working near its edge, or are combining multiple charts
+into one map. They can be removed by cropping the chart as described here.
 
 Zoom and pan the map so that only the portion of the chart you want is
 visible. Resizing the window may help you get the map into the correct shape. 
