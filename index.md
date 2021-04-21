@@ -384,13 +384,10 @@ A very useful planning tool is the Compass Routes plugin, which will let you
 plot your own routes automatically labelled with distance and magnetic bearing. It will also let you create your own magnetic north lines for any area. The variation for the current date is automatically calculated, so you don't need to consult any tables or other maps.
 
 To install this plugin, do the following:
-- [Download](https://github.com/joeberkovitz/qgis-compass-routes/releases/download/v0.3.1/compass_routes.zip) the `compass_routes.zip` plugin file
-- Open up the Plugin Manager by using the **Plugins > Manage and Install Plugins...** menu command
-- Select the **Install from ZIP** option on the left
-- Click the **...** button and select the just-downloaded plugin file from above
-- Click **Install Plugin**.
-
-Two new tools will now appear in your toolbar for working with magnetic bearings.
+- open up the Plugin Manager by using the **Plugins > Manage and Install Plugins...** menu command
+- go to the **Settings** tab and check the box labeled *Show also experimental plugins* (otherwise you won't see the plugin, which is currently considered experimental.)
+- go to the **Not Installed** tab and enter "Compass Routes" in the search text box
+- select *Compass Routes* and install it
 
 Documentation for the plugin can be found [here](https://joeberkovitz.github.io/qgis-compass-routes).
 
