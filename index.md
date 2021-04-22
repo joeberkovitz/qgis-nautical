@@ -33,9 +33,12 @@ scale bar, and lat/long grid.
 specific NOAA charts in a georeferenced format, with various scales for chart
 preparation.
 
-**[Download NSPN-Workshop-Template-2.qgz](NSPN-Workshop-Template-2.qgz)**
+**[Download NOAA-Template.qgz](NOAA-Template.qgz)**
 
-*Note: at present the template is geared to the New England area.*
+*Note: if the above template does not load, it may be due to an outage in NOAA's
+Seamless RNC web service. If so, [this template](NSPN-Workshop-Template-2.qgz)
+can be used instead although it is limited to the New England area.*
+
 
 ## Quick guide to making raster charts
 
@@ -122,9 +125,12 @@ mouse to move it around. You can also drag the map without clicking by holding
 down the spacebar at the same time, which is useful when you're using a tool
 other than the Pan tool.
 
-On a mouse that has a scroll wheel, the wheel lets you zoom in and out.
-On trackpads, drag two fingers vertically up or down over the map to zoom in
-and out. Hold down Command (Mac) or Alt (Windows) to zoom more slowly.
+To zoom the map in and out, use exactly the same technique you would use to
+scroll any window up (zooming out) or down (zooming out). This technique
+varies from computer to computer. On most trackpads, dragging two fingers up
+or down works for this. On a mouse that has a mechanical scroll wheel, the
+wheel does the trick. Hold down Command (Mac) or Alt (Windows) to zoom more
+slowly.
 
 You can also type a scale directly into the **Scale** control at the bottom of the window.
 
@@ -157,7 +163,7 @@ actually look like.
 over a station will display the station name and a link to its NOAA home page
 where tide or current predictions can be viewed.
 
-- *RNC Chart Downloads* show the locations of various NOAA printed
+- *Raster Chart Downloads* show the locations of various NOAA printed
 charts at different scales. You can use these to preview and download charts
 for inclusion in your maps.
 
@@ -166,16 +172,6 @@ nautical charts, which is automatically downloaded from NOAA web servers. You
 do not need to download any files to see these tiles. The type of the chart that is
 displayed (e.g. general, coastal, harbor) depends on the scale at which you
 are viewing this layer.
-
-(The most reliable version of this layer is packaged in the template. For a higher-resolution
-version using NOAA's Seamless RNC Service, you may download [this layer definition](layers/SeamlessRNCCharts.qlr)
-and add it to your project using **Layer > Add from Layer Definition File...**.
-
-- *NOAA Encoded Nav Charts* layer (CURRENTLY UNAVAILABLE). This is a prototype layer showing NOAA's new
-encoded navigational charts (ENC). Some version of this will eventually replace the
-more familiar raster charts. For now, it's more of a curiosity than something
-useful. It has a number of independent sub-layers that can be switched on and
-off.
 
 The order of the layers is important, as layers on top can obscure layers on
 the bottom. They can be dragged around and reordered. They are also placed in
@@ -248,8 +244,10 @@ wrong area: it will display whatever was originally put into the premade
 layout. Your first step is to make it show the same area as the main map.
 
 Begin by clicking the map to select it, and then open the **Item Properties**
-tab in the panel on the right (circled in the figure below). Your layout
-window should now look something like this:
+tab in the panel on the right (circled in the figure below). (The first time
+you select the map, you may not have an Item Properties tab -- if so, then
+right-click the map and select *Item Properties...* from the popup menu.) Your
+layout window should now look something like this:
 
 ![Layout](guide/images/Layout.png)
 
@@ -322,28 +320,35 @@ the crispest and sharpest possible resolution in your final printout.
 
 You can easily preview, download and include any NOAA chart into QGIS in a way
 that will automatically fit them together seamlessly. Begin the process by
-activating the *RNC Chart Downloads* layer by checking its visibility box, and
-clicking its name.
+activating the *Raster Chart Downloads* layer by checking its visibility box, and
+clicking its name. Click the little triangle to expand the choices of chart scales.
+Your screen should look like this:
+
+![footprints](guide/images/ChartFootprints.png)
 
 Next, use **View > Identify Features** to switch the mouse cursor to the
 *Identify* tool, which lets you interact with specific chart download
-footprints. With this tool, *right-click* the map you want to download. You
-will be given a choice of Preview or Download.
+footprints. With this tool, *right-click* the chart you want to download. You
+will see a menu offering a choice of charts; for each chart, there is a
+sub-choice of Preview Chart or Download Chart Layer:
 
-It's a good idea to preview first to make sure you know what you are getting,
-as the files are large and may take some time to download.
+![identify](guide/images/IdentifyFootprint.png)
 
-Once you download a layer, a box will come up to show you the progress of the download.
-When completed, the downloaded map file will be saved in the same directory
-as your QGIS project and a brand new map layer will be added to your project. 
+It's a good idea to Preview first to make sure you know what you are getting,
+as the chart images are large can take some time to download and process.
 
-At this point, turn OFF the regular NOAA Charts and Footprints layers, and
+When you choose Download, a box will come up to show you the progress of the download.
+You will also have to click through a number of other steps that take a bit of time.
+When completed, the downloaded map file will be saved in a folder alongside your
+your QGIS project named `NOAA-raster/`, and a brand new map layer will be added to your project. 
+
+At this point, turn OFF the regular NOAA Charts and Downloads layers, and
 zoom into the area of interest. Now go about making a print layout in the
 exact same way you did before: the procedure is identical, except that now you
 are using a different layer for the map.
 
-Don't forget to save the project or you will have to add the map again (you do not
-need to download it again, but can use **Layer > Add Layer > Add Raster Layer...**).
+Don't forget to save the project or you will have to add the map again (although it
+will come up much faster the second time).
 
 ### Adding markers or waypoints
 
@@ -427,73 +432,6 @@ Now your map will include the locations of all US wind turbines. You can also
 use advanced features of QGIS like the Identify tool to look up information
 about the turbines like their height, their location, their names and so
 forth. Learning how to do this with QGIS is a worthwhile exercise.
-
-### Downloading your own RNC charts from NOAA
-
-The downloadable charts in this project are currently limited to only certain
-regions. You can also download any NOAA RNC chart from their
-[Interactive Chart Catalog](https://www.charts.noaa.gov/InteractiveCatalog/nrnc.shtml) by
-going to the Paper Charts tab, selecting a chart, and then clicking **RNC** at
-the bottom right. You will get a .zip file that unpacks to include one or more
-`BSB_ROOT/xxxxx_x.KAP` files which can be loaded into QGIS directly. However,
-these downloaded image include non-map stuff like the frame, lat/long tick
-marks and labels, copyright text and blank margins. These get in the way of
-the map if you are working near its edge, or are combining multiple charts
-into one map. They can be removed by cropping the chart as described here.
-
-Zoom and pan the map so that only the portion of the chart you want is
-visible. Resizing the window may help you get the map into the correct shape. 
-Select the chart's layer and choose **Layer > Save As...** from the menu.
-
-Perform these steps:
-
-1. Select the radio button at the top marked *Rendered
-Image*.
-
-1. Click the "..." button to the right of the *File name* field, and
-choose the name of a file to save the cropped chart to.
-
-1. Click the *Map Canvas Extent* button which crops the chart to the size of the map view.
-
-1. Click OK. A new chart layer will be added to your project with the cropped
-chart.
-
-1. Delete the old chart layer.
-
-This technique can be used with multiple charts to allow you to overlap them
-and achieve a seamless combination of your own choosing, by displaying the
-layers for multiple cropped charts together. QGIS automatically positions them
-so the pieces fit together exactly.
-
-Optionally, you can crop a chart to its exact footprint rather than using
-the map window size. This exactly trims off all the border material and works
-better for those charts whose boundary is at an angle. To do this, perform these
-steps:
-
-1. Select the Chart Footprints layer and use **Edit > Select > Select Features**, then click the footprint you want to crop to.
-
-1. Use the command **Raster > Extraction > Clip Raster By Mask Layer...**. In the dialog which follows:
-
-    - select the chart as the *Input layer*
-    - select the footprints layer as the *Mask layer*
-    - check the box marked *Selected features only*
-    - provide the value `255` to the option *Assign a specified nodata value to output bands*.
-    - click *Run*
-
-A new temporary layer named *Clipped (Mask)* will be created that is exactly
-clipped to the footprint. You must now save it using these steps, very similar
-to the cropping technique given above:
-
-1. Select the radio button at the top marked *Rendered
-Image*.
-
-1. Click the "..." button to the right of the *File name* field, and
-choose the name of a file to save the cropped chart to.
-
-1. Click OK. A new chart layer will be added that uses the saved file.
-
-1. Delete the originally imported chart layer and the temporary clipping layer.
-
 
 ### Simplifying the user interface
 
