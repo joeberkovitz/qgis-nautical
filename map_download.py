@@ -22,9 +22,7 @@ if not os.path.exists(storageDir):
     os.mkdir(storageDir)  # a place to do our work adjacent to the project
 imagePath = os.path.join(storageDir, chart + '.zip')   # downloaded BSB archive
 rasterPath = os.path.join(storageDir,'BSB_ROOT',chart,chart_num+'.KAP')   # raster file extracted from it
-clippedName = chart_num+'_clipped'    # name of a temporary clipped layer
-clippedPath = os.path.join(storageDir,clippedName+'.tif')   # the clipped file
-rgbPath = os.path.join(storageDir,chart_num+'.tif')   # the final clipped RGB image file
+clippedPath = os.path.join(storageDir,chart_num+'.tif')   # the clipped file
 workingDict = {}
 
 prog = QProgressDialog('', 'Cancel', 0, 100)
@@ -77,50 +75,29 @@ def mask_chart_layer():
             'OUTPUT': clippedPath
         },
         'Clipping to chart boundary...',
-        convert_layer)
+        create_clipped_layer)
 
-# convert the masked chart to RGB
-def convert_layer(context, successful, results):
-    if not successful or prog.wasCanceled():
-        return
+
+# create the final raster layer once we have the file
+def create_clipped_layer(context, successful, results):
+    if not successful:
+        raise Exception(tr('Could not perform clipping operation.'))
 
     os.remove(rasterPath)
     QgsProject.instance().removeMapLayer(workingDict['maskLayerId'])
 
-    # write that layer out using its rendering pipe, which causes it to become
-    # a regular RGB layer so that it interpolates properly when zoomed out.
-    clippedLayer = QgsProcessingUtils.mapLayerFromString(results['OUTPUT'], context)
-    clippedLayer = context.takeResultLayer(clippedLayer.id())
-    QgsProject.instance().addMapLayer(clippedLayer)
+    add_clipped_layer()
 
-    # can't use writer task due to https://github.com/qgis/QGIS/issues/33801; fix is on master but not in 3.16
-    writer = QgsRasterFileWriter(rgbPath)
-    writer.writeRaster(
-        clippedLayer.pipe(),
-        int(clippedLayer.extent().width() / clippedLayer.rasterUnitsPerPixelX()),
-        int(clippedLayer.extent().height() / clippedLayer.rasterUnitsPerPixelY()),
-        clippedLayer.extent(),
-        clippedLayer.crs(),
-        clippedLayer.transformContext()
-    )
-
-    QgsProject.instance().removeMapLayer(clippedLayer.id())
-    os.remove(clippedPath)
-
-    # Now create the final layer from the exported file
-    create_rgb_layer()
-    
-# create the final raster layer once we have the file
-def create_rgb_layer():
-    rgbLayer = QgsRasterLayer(rgbPath, '[% CHART_NUM || ': ' || TITLE %]')
+def add_clipped_layer():
+    clippedLayer = QgsRasterLayer(clippedPath, '[% CHART_NUM || ': ' || TITLE %]')
     iface.setActiveLayer(footprintsLayer)
-    QgsProject.instance().addMapLayer(rgbLayer)
+    QgsProject.instance().addMapLayer(clippedLayer)
     prog.reset()
     
 
 # Check if we already have an exported chart file in the expected place. If so, use it.
-if os.path.exists(rgbPath):
-    create_rgb_layer()
+if os.path.exists(clippedPath):
+    add_clipped_layer()
 # Otherwise, download the BSB archive and do all the things.
 else:
     # create a file downloader
