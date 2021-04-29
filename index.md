@@ -142,11 +142,10 @@ Similar to Adobe Illustrator and many drawing programs, QGIS maps display a
 set of visual layers that can be independently turned on and off. These are
 shown in the Layers panel at lower left. 
 
-When you first open the template project, layers for marine charts and a
-magnetic grid pertinent for Massachusetts are turned on. Each layer has its
-own checkbox enabling it. Layers are also placed into a hierarchy of groups
-that can also be turned on and off. Try checking and unchecking the various
-boxes to see what the layers and groups contain.
+When you first open the template project, a layer for NOAA marine charts is
+turned on. Each layer has its own checkbox enabling it. Layers are also placed
+into a hierarchy of groups that can also be turned on and off. Try checking
+and unchecking the various boxes to see what the layers and groups contain.
 
 Layers included in the template project include:
 
