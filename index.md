@@ -138,7 +138,7 @@ You can also type a scale directly into the **Scale** control at the bottom of t
 
 #### Control the map layers
 
-Similar to Adobe Illustrator and other drawing programs, QGIS maps display a
+Similar to Adobe Illustrator and many drawing programs, QGIS maps display a
 set of visual layers that can be independently turned on and off. These are
 shown in the Layers panel at lower left. 
 
