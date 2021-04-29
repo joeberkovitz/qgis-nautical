@@ -128,11 +128,11 @@ down the spacebar at the same time, which is useful when you're using a tool
 other than the Pan tool.
 
 To zoom the map in and out, use exactly the same technique you would use to
-scroll any window up (zooming out) or down (zooming out). This technique
-varies from computer to computer. On most trackpads, dragging two fingers up
-or down works for this. On a mouse that has a mechanical scroll wheel, the
-wheel does the trick. Hold down Command (Mac) or Alt (Windows) to zoom more
-slowly.
+make any window *scroll up* (which causes QGIS to zoom out) or *scroll down*
+(zoom in). The exact technique varies from one computer to another. On most
+trackpads, dragging two fingers up or down works for this. On a Windows-style
+mouse that has a mechanical scroll wheel, the wheel does the trick. Hold down
+the Command (Mac) or Alt (Windows) key to zoom more slowly.
 
 You can also type a scale directly into the **Scale** control at the bottom of the window.
 
