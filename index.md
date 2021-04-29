@@ -151,10 +151,6 @@ Layers included in the template project include:
 
 - *Waypoints* includes general-purpose markers that you create yourself. It is initially empty.
 
-- *Magnetic grids* showing magnetic north at various declinations in various
-regions. A New England grid is currently loaded by default, but other grids
-can be created at well using the [Compass Routes plugin](#compass-routes-plugin) as described later on.
-
 - *OpenStreetMap* topo/street map view (similar to Google Maps' Default view).
 
 - *Google Maps Satellite* imagery layer. Very handy for seeing what areas
@@ -252,11 +248,16 @@ layout window should now look something like this:
 
 ![Layout](guide/images/Layout.png)
 
-Click the small red icon circled above, whose full name is **Set Map Extent to
-match Main Canvas Extent**: a fancy way of saying, make this layout's map show
-the same area as the main map. Click this button, and the map should change
+Click the small red icon in the Item Properties tab circled above, whose full
+name is **Set Map Extent to match Main Canvas Extent**: a fancy way of saying,
+make this layout's map show the same area as the main map. Here's a detail of
+that area of the window:
+
+![Layout Extent](guide/images/SetLayoutExtentFromMap.png)
+
+Click this button, and the map should change
 to show the same area as the main map. If it doesn't, try clicking the blue
-**Update Map Preview** icon just to its left.
+**Update Map Preview** icon just to its left, then try again.
 
 #### Adjust the layout map to the exact position and scale you want.
 
@@ -304,6 +305,17 @@ and you will now have your finished chart as a PDF.
 
 Here's [an example](guide/charts/SalemSound.pdf). (It's a large file and you
 may need to view it in Acrobat rather than in your web browser.)
+
+### Overlaying a magnetic north grid on your map
+
+This website includes pre-made magnetic north grid lines for New England and the
+West Coast. To use these, use [this link](vector/magneticNorth/gridPackage.gpkg)
+to download the `gridPackage.gpkg` layer data. Once downloaded, drag and drop the file
+onto your QGIS map window and select the grids of interest to load. You can turn these
+layers on in order to make them visible in a Layout before you export it to PDF.
+
+Note that you can make your own magnetic grids for any desired location using the 
+[Compass Routes plugin](#compass-routes-plugin) as described below.
 
 ### Including specific NOAA charts in your map
 
