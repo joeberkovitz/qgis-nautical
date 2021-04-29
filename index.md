@@ -255,9 +255,9 @@ that area of the window:
 
 ![Layout Extent](guide/images/SetLayoutExtentFromMap.png)
 
-Click this button, and the map should change
-to show the same area as the main map. If it doesn't, try clicking the blue
-**Update Map Preview** icon just to its left, then try again.
+Click this button, and the map should change to show the same area as the main
+map. If it doesn't, try clicking the blue **Update Map Preview** icon just to
+its left, then try again.
 
 #### Adjust the layout map to the exact position and scale you want.
 
