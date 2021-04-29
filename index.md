@@ -63,8 +63,10 @@ multicore machine with at least 8 GB of RAM is recommended.
 
 Begin by downloading the QGIS application for your computer from
 [download.qgis.org](https://download.qgis.org). Use the Long Term Release (as
-of this writing, 3.16), not the Latest release. If you are on Windows use the
-Standalone Installer for 64-bit Windows.
+of this writing, 3.16). Do not install the Latest release (3.18) as it is
+prone to crash.
+
+**Windows note:** Use the Standalone Installer for 64-bit Windows.
 
 **Mac OS note:** The first time you run the QGIS application, it will complain
 that the app "cannot be opened because it cannot be checked for malicious
