@@ -33,13 +33,6 @@ scale bar, and lat/long grid.
 specific NOAA charts in a georeferenced format, with various scales for chart
 preparation.
 
-**[Download NOAA-Template.qgz](NOAA-Template.qgz)**
-
-*Note: if the above template does not load, it may be due to an outage in NOAA's
-Seamless RNC web service. If so, [this template](NSPN-Workshop-Template-2.qgz)
-can be used instead although it is limited to the New England area.*
-
-
 ## Quick guide to making raster charts
 
 This guide describes how to:
@@ -74,20 +67,23 @@ software". This is in fact normal. You can get around it by right-clicking the
 application icon in the Applications folder, choosing *Open* from the menu,
 and then clicking *Open* on the resulting dialog box.
 
-Also download the template project described [above](#noaa-raster-charts-template) and copy it
-to a new folder that you will be using to create your charts. You may wish to change its name also
-since it will no longer be a template once you start changing it.
-
 Depending on the type of computer you are using, you may need to run an
 installer program. Follow the instructions for your particular download.
 
-### Open the template project
+### Get and open the template project
+
+Download the following template project and copy it to a new folder that you
+will be using to create your charts. You may wish to change its name also
+since it will no longer be a template once you start changing it.
+
+**[Download NOAA-Template.qgz](NOAA-Template.qgz)**
 
 Start the QGIS application and use **Project > Open...** to open the template project.
 In the future you can use **Open Recent >** as a shortcut.
 
-(Note that your computer may not know how to open QGIS .qgz project files to start with. You can
-tell it how to do that, usually the first time you try to open one, when your machine complains.)
+(Note that your computer may not know how to open QGIS .qgz project files
+directly by double-clicking them. You can tell it how to do that, usually the
+first time you try to open one, when your machine complains.)
 
 When you open the project up, in the center of the window you will see the
 main map that QGIS uses, called the **Map View**. The next section describes
