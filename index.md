@@ -33,6 +33,12 @@ scale bar, and lat/long grid.
 specific NOAA charts in a georeferenced format, with various scales for chart
 preparation.
 
+## Video walkthrough
+
+Here's a video walkthrough of most of the material on this page:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TQJBELU8vos" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Quick guide to making raster charts
 
 This guide describes how to:
