@@ -158,9 +158,11 @@ Layers included in the template project include:
 - *Google Maps Satellite* imagery layer. Very handy for seeing what areas
 actually look like.
 
-- *Current stations* and *Tide stations* providing NOAA predictions. Hovering
-over a station will display the station name and a link to its NOAA home page
-where tide or current predictions can be viewed.
+- *Current stations* and *Tide stations* providing NOAA predictions. Make sure
+that Tool Tips are enabled (speech-balloon button in top toolbar), and that
+the appropriate layer is selected in the Layers panel. If those conditions are
+met, hovering over a station will display the station name and a link to its
+NOAA home page where tide or current predictions can be viewed.
 
 - *Raster Chart Downloads* show the locations of various NOAA printed
 charts at different scales. You can use these to preview and download charts
