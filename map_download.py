@@ -42,11 +42,11 @@ def run_alg_task(algId, params, message, onFinish):
     task.executed.connect(partial(onFinish, context))
     run_task(task, message)
 
-# clip the chart to its footpring
+# clip the chart to its footprint
 def mask_chart_layer():
-    zipMember = 'BSB_ROOT/{}/{}.KAP'.format(chart,chart_num)
-    zf = ZipFile(imagePath)
-    zf.extract(zipMember, storageDir)
+    with ZipFile(imagePath) as zf:
+        zipMember = 'BSB_ROOT/{}/{}.KAP'.format(chart,chart_num)
+        zf.extract(zipMember, storageDir)
     os.remove(imagePath)
 
     # Copy the footprint from the NOAA feature layer to a temporary polygon masking layer.
