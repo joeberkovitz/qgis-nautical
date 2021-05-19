@@ -83,7 +83,6 @@ def create_clipped_layer(context, successful, results):
     if not successful:
         raise Exception(tr('Could not perform clipping operation.'))
 
-    os.remove(rasterPath)
     QgsProject.instance().removeMapLayer(workingDict['maskLayerId'])
 
     add_clipped_layer()
