@@ -71,7 +71,9 @@ prone to crash.
 that the app "cannot be opened because it cannot be checked for malicious
 software". This is in fact normal. You can get around it by right-clicking the
 application icon in the Applications folder, choosing *Open* from the menu,
-and then clicking *Open* on the resulting dialog box.
+and then clicking *Open* on the resulting dialog box. (On some versions of MacOS
+you may need to hold down the Option key while clicking or right-clicking; I haven't
+been able to test this.)
 
 Depending on the type of computer you are using, you may need to run an
 installer program. Follow the instructions for your particular download.
