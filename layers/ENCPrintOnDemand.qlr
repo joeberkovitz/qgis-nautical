@@ -1,0 +1,105 @@
+<!DOCTYPE qgis-layer-definition>
+<qlr>
+  <layer-tree-group expanded="1" name="" checked="Qt::Checked">
+    <customproperties/>
+    <layer-tree-layer patch_size="-1,-1" legend_exp="" providerKey="wms" expanded="1" id="Natural_and_man_made_features__port_features_Depths__currents__etc_Seabed__obstructions__pipelines_Traffic_routes_Special_areas_Buoys__beacons__lights__fog_signals__radar_3e03d06a_1ac7_44f0_97b8_e4f8bbc58ba6" name="NOAA ENC Print-on-demand" checked="Qt::Checked" source="contextualWMSLegend=0&amp;crs=EPSG:3857&amp;dpiMode=7&amp;featureCount=10&amp;format=image/png&amp;layers=6&amp;layers=5&amp;layers=4&amp;layers=3&amp;layers=2&amp;layers=1&amp;styles&amp;styles&amp;styles&amp;styles&amp;styles&amp;styles&amp;url=https://devgis.charttools.noaa.gov/arcgis/rest/services/POD/NCC_1081/MapServer/exts/MaritimeChartService/WMSServer" legend_split_behavior="0">
+      <customproperties/>
+    </layer-tree-layer>
+  </layer-tree-group>
+  <maplayers>
+    <maplayer maxScale="0" autoRefreshTime="0" styleCategories="AllStyleCategories" autoRefreshEnabled="0" refreshOnNotifyEnabled="0" refreshOnNotifyMessage="" hasScaleBasedVisibilityFlag="0" minScale="1e+08" type="raster">
+      <extent>
+        <xmin>-20037508.34278924390673637</xmin>
+        <ymin>-14549645.469572389498353</ymin>
+        <xmax>20037508.34278925508260727</xmax>
+        <ymax>16655541.93302605487406254</ymax>
+      </extent>
+      <id>Natural_and_man_made_features__port_features_Depths__currents__etc_Seabed__obstructions__pipelines_Traffic_routes_Special_areas_Buoys__beacons__lights__fog_signals__radar_3e03d06a_1ac7_44f0_97b8_e4f8bbc58ba6</id>
+      <datasource>contextualWMSLegend=0&amp;crs=EPSG:3857&amp;dpiMode=7&amp;featureCount=10&amp;format=image/png&amp;layers=6&amp;layers=5&amp;layers=4&amp;layers=3&amp;layers=2&amp;layers=1&amp;styles&amp;styles&amp;styles&amp;styles&amp;styles&amp;styles&amp;url=https://devgis.charttools.noaa.gov/arcgis/rest/services/POD/NCC_1081/MapServer/exts/MaritimeChartService/WMSServer</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>NOAA ENC Print-on-demand</layername>
+      <srs>
+        <spatialrefsys>
+          <wkt>PROJCRS["WGS 84 / Pseudo-Mercator",BASEGEOGCRS["WGS 84",DATUM["World Geodetic System 1984",ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4326]],CONVERSION["Popular Visualisation Pseudo-Mercator",METHOD["Popular Visualisation Pseudo Mercator",ID["EPSG",1024]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["False easting",0,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["unknown"],AREA["World - 85°S to 85°N"],BBOX[-85.06,-180,85.06,180]],ID["EPSG",3857]]</wkt>
+          <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs</proj4>
+          <srsid>3857</srsid>
+          <srid>3857</srid>
+          <authid>EPSG:3857</authid>
+          <description>WGS 84 / Pseudo-Mercator</description>
+          <projectionacronym>merc</projectionacronym>
+          <ellipsoidacronym>EPSG:7030</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <wkt></wkt>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>true</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent/>
+      </resourceMetadata>
+      <provider>wms</provider>
+      <noData>
+        <noDataList bandNo="1" useSrcNoData="0"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <temporal fetchMode="0" enabled="0" mode="0">
+        <fixedRange>
+          <start></start>
+          <end></end>
+        </fixedRange>
+      </temporal>
+      <customproperties>
+        <property value="Html" key="identify/format"/>
+      </customproperties>
+      <pipe>
+        <provider>
+          <resampling zoomedInResamplingMethod="nearestNeighbour" enabled="false" maxOversampling="2" zoomedOutResamplingMethod="nearestNeighbour"/>
+        </provider>
+        <rasterrenderer band="1" nodataColor="" alphaBand="-1" opacity="1" type="singlebandcolordata">
+          <rasterTransparency/>
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+        </rasterrenderer>
+        <brightnesscontrast brightness="0" gamma="1" contrast="0"/>
+        <huesaturation colorizeStrength="100" colorizeOn="0" colorizeBlue="128" colorizeRed="255" saturation="0" colorizeGreen="128" grayscaleMode="0"/>
+        <rasterresampler maxOversampling="2"/>
+        <resamplingStage>resamplingFilter</resamplingStage>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+  </maplayers>
+</qlr>
