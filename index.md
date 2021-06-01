@@ -33,6 +33,13 @@ scale bar, and lat/long grid.
 specific NOAA charts in a georeferenced format, with various scales for chart
 preparation.
 
+*Note that NOAA has started the process of retiring raster charts (RNC) in
+ favor of a fully digital chart format (ENC). See the section on NOAA's
+ [sunsetting of raster charts](#sunsetting-of-raster-charts) for more
+ information. Some of the raster NOAA chart resources used here will begin to
+ go offline as soon as January 2021, but this project will change to make use
+ of the new chart data.*
+
 ## Video walkthrough
 
 Here's a video walkthrough of most of the material on this page:
@@ -460,3 +467,41 @@ Customization...** command. Use the Load From File icon (yellow folder) to
 load the `customization.ini` file that you can download from
 [here](customization/customization.ini) and save on your computer. Then click
 OK and restart QGIS with a simpler user interface.
+
+## Sunsetting of raster charts
+
+It's sad but true: NOAA has announced that they are retiring the beautiful
+raster charts because they are just too expensive to keep going at the same
+time as the newer ENC all-digital format. The details are on NOAA's
+[farewell to traditional nautical charts](https://nauticalcharts.noaa.gov/charts/farewell-to-traditional-nautical-charts.html#top) page.
+
+What does this mean for the qgis-nautical project? As best we can determine, it
+means the following:
+
+- NOAA is now providing its own [print-on-demand custom chart service](https://devgis.charttools.noaa.gov/pod/) on the web that produces
+printable PDF files of any area you want. It does not work with raster
+charts, only the new digital format. If all you want is to print custom
+charts in the new style and none of the other features of this project,
+this service may meet your needs.
+
+- The Seamless RNC Tile Service (which provides the *NOAA Raster Nav Charts*
+overview layer in the template project) will go offline on January 1, 2022. At that point,
+this layer will stop working and we'll remove it from the project.
+
+- However, this does not mean that individual raster charts are not available. Specific raster
+charts can still be [downloaded on demand](#including-specific-noaa-charts-in-your-map) until they are cancelled by
+NOAA. The *Raster Chart Downloads* layer is now served
+from this project rather than NOAA, to avoid being impacted by the same shutdown.
+
+- Going forward, this project will allow the creation of charts using the new NOAA ENC tile services as a source
+for custom maps. These layers can already be used today by downloading either of the following `.qlr` files
+and dropping them onto a QGIS project window:
+
+    - [NOAA ENC Print On Demand](layers/ENCPrintOnDemand.qlr): styled like the existing paper charts.
+    - [NOAA ENC ECDIS](layers/ENC-ECDIS.qlr): styled like an ENC electronic chart display.
+
+- The cancellation of individually downloadable charts will proceed through
+2025 on a gradual basis, limiting which ones can be downloaded. We're going
+to try and keep the *Raster Chart Downloads* layer up to date with respect
+to these cancellations.
+
