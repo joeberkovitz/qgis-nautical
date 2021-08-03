@@ -177,11 +177,15 @@ NOAA home page where tide or current predictions can be viewed.
 charts at different scales. You can use these to preview and download charts
 for inclusion in your maps.
 
-- *NOAA Raster Nav Charts* layer. This is a "tiled" version of the NOAA printed
+- *NOAA Raster Nav Charts* is a "tiled" version of the NOAA printed
 nautical charts, which is automatically downloaded from NOAA web servers. You
 do not need to download any files to see these tiles. The type of the chart that is
 displayed (e.g. general, coastal, harbor) depends on the scale at which you
-are viewing this layer.
+are viewing this layer. Note: This layer will no longer be available starting in
+September 2021.
+
+- *NOAA Print-on-demand Charts* is a "tiled" version of the new NOAA print on demand
+digital charts, which will replace the printed nautical charts.
 
 The order of the layers is important, as layers on top can obscure layers on
 the bottom. They can be dragged around and reordered. They are also placed in
